@@ -2,6 +2,7 @@
     "name": "vladnpr/twitter-string",
     "description": "simple twitter messages string",
     "type": "class",
+    "version": "0.0.1",
     "authors": [
         {
             "name": "vladnpr",
@@ -9,5 +10,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "abraham/twitteroauth": "^0.7.4"
+    }
 }
