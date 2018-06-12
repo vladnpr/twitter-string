@@ -1,0 +1,13 @@
+{
+    "name": "vladnpr/twitter-string",
+    "description": "simple twitter messages string",
+    "type": "class",
+    "authors": [
+        {
+            "name": "vladnpr",
+            "email": "vladnpr@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
