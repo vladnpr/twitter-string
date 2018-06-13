@@ -11,6 +11,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "abraham/twitteroauth": "^0.7.4"
+        "abraham/twitteroauth": "^0.7.4",
+        "symfony/class-loader": "^3.4"
     }
 }
