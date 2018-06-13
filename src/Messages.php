@@ -31,19 +31,11 @@ class Messages
             foreach($tweets as $tweet) {
                 $twitter[] = [
                     'screen_name' => $tweet->user->screen_name,
+                    'name' => $tweet->user->name,
                     'profile_image_url' => $tweet->user->profile_image_url,
                     'text' => $tweet->text,
-                    'created_at' => $tweet->created_at
+                    'created_at' => date('d.m.Y H:i:s', strtotime($tweet->created_at))
                 ];
-//                $twitter .= '<article>
-//            <aside class="avatar">
-//                <a href="http://twitter.com/'.$tweet->user->screen_name.'" target="_blank">
-//                    <img alt="'.$tweet->user->screen_name.'" src="'.$tweet->user->profile_image_url.'" />
-//                </a>
-//            </aside>
-//            <p>'.$tweet->created_at.'</p>
-//            <p>'.$tweet->text.'</p>
-//        </article>';
             }
         }
 

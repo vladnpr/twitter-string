@@ -1,8 +1,12 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,56 +35,39 @@
 <body>
 
 <!-- Right Panel -->
-<?var_dump($twits);?>
 <div id="right-panel" class="right-panel">
     <div class="content mt-3 col-lg-12">
-        <div class="col-xl-3 col-lg-1">
-            <section class="card">
-                <div class="twt-feed blue-bg">
-                    <div class="corner-ribon black-ribon">
-                        <i class="fa fa-twitter"></i>
-                    </div>
-                    <div class="fa fa-twitter wtt-mark"></div>
-
-                    <div class="media">
-                        <a href="#">
-                            <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="/public/images/admin.jpg">
-                        </a>
-                        <div class="media-body">
-                            <h2 class="text-white display-6">Jim Doe</h2>
-                            <p class="text-light">Project Manager</p>
+        <? if (!empty($twits)): ?>
+            <? foreach ($twits as $twit): ?>
+                <div class="col-xl-3 col-lg-1">
+                    <section class="card">
+                        <div class="twt-feed blue-bg">
+                            <div class="corner-ribon black-ribon">
+                                <i class="fa fa-twitter"></i>
+                            </div>
+                            <div class="fa fa-twitter wtt-mark"></div>
+                            <div class="media">
+                                <a href="https://twitter.com/<?=$twit['screen_name']?>">
+                                    <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;"
+                                         alt="" src="<?=$twit['profile_image_url']?>">
+                                </a>
+                                <div class="media-body">
+                                    <h2 class="text-white display-6"><?=$twit['name']?></h2>
+<!--                                    <p class="text-light">Project Manager</p>-->
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        <div class="twt-write col-sm-12">
+                            <p><?=$twit['text']?></p>
+                        </div>
+                        <footer class="twt-footer">
+                            <?=$twit['created_at']?>
+                        </footer>
+                    </section>
+
                 </div>
-<!--                <div class="weather-category twt-category">-->
-<!--                    <ul>-->
-<!--                        <li class="active">-->
-<!--                            <h5>750</h5>-->
-<!--                            Tweets-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <h5>865</h5>-->
-<!--                            Following-->
-<!--                        </li>-->
-<!--                        <li>-->
-<!--                            <h5>3645</h5>-->
-<!--                            Followers-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-                <div class="twt-write col-sm-12">
-                    <p>asdasdasdasd</p>
-                </div>
-                <footer class="twt-footer">
-                    <a href="#"><i class="fa fa-camera"></i></a>
-                    <a href="#"><i class="fa fa-map-marker"></i></a>
-                    New Castle, UK
-                    <span class="pull-right">
-                            32
-                        </span>
-                </footer>
-            </section>
-        </div>
+            <? endforeach; ?>
+        <? endif; ?>
     </div> <!-- .content -->
 </div><!-- /#right-panel -->
 
@@ -99,11 +86,12 @@
 <script src="/public/assets/js/lib/vector-map/jquery.vmap.min.js"></script>
 <script src="/public/assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
 <script src="/public/assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
+<script src="/public/js/custom.js">
 <script>
-    ( function ( $ ) {
+    (function ($) {
         "use strict";
 
-        jQuery( '#vmap' ).vectorMap( {
+        jQuery('#vmap').vectorMap({
             map: 'world_en',
             backgroundColor: null,
             color: '#ffffff',
@@ -112,10 +100,10 @@
             enableZoom: true,
             showTooltip: true,
             values: sample_data,
-            scaleColors: [ '#1de9b6', '#03a9f5' ],
+            scaleColors: ['#1de9b6', '#03a9f5'],
             normalizeFunction: 'polynomial'
-        } );
-    } )( jQuery );
+        });
+    })(jQuery);
 </script>
 
 </body>

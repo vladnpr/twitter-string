@@ -5,11 +5,10 @@ use Src\Messages;
 use App\View;
 class App
 {
-    private static $view_path = BASE_DIR . '/public/views/';
-
     public static function run()
     {
         $twits = self::getTweets();
+
         self::render('index', ['twits' => $twits]);
     }
 
