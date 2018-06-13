@@ -19,28 +19,31 @@ class Messages
 
     public function getMessages()
     {
-        //$connection = new TwitterOAuth($this->consumer_key, $this->consumer_secret, $this->oauth_token , $this->oauth_secret);
         $connection = new TwitterOAuth(
             $this->consumer_key,
             $this->consumer_secret,
             $this->oauth_token,
             $this->oauth_secret
             );
-        echo "<pre>";
-
-        $tweets = $connection->get('statuses/user_timeline', array('screen_name' => '@Vladnpr', 'exclude_replies' => 'true', 'include_rts' => 'false', 'count' => 25));
-        $twitter = '';
+        $tweets = $connection->get('statuses/user_timeline', array('screen_name' => '@Vladnpr', 'exclude_replies' => 'true', 'include_rts' => 'false', 'count' => $this->tweet_limit));
+        $twitter = [];
         if(!empty($tweets)){
             foreach($tweets as $tweet) {
-                $twitter .= '<article>
-            <aside class="avatar">
-                <a href="http://twitter.com/'.$tweet->user->screen_name.'" target="_blank">
-                    <img alt="'.$tweet->user->screen_name.'" src="'.$tweet->user->profile_image_url.'" />
-                </a>
-            </aside>
-            <p>'.$tweet->created_at.'</p>
-            <p>'.$tweet->text.'</p>
-        </article>';
+                $twitter[] = [
+                    'screen_name' => $tweet->user->screen_name,
+                    'profile_image_url' => $tweet->user->profile_image_url,
+                    'text' => $tweet->text,
+                    'created_at' => $tweet->created_at
+                ];
+//                $twitter .= '<article>
+//            <aside class="avatar">
+//                <a href="http://twitter.com/'.$tweet->user->screen_name.'" target="_blank">
+//                    <img alt="'.$tweet->user->screen_name.'" src="'.$tweet->user->profile_image_url.'" />
+//                </a>
+//            </aside>
+//            <p>'.$tweet->created_at.'</p>
+//            <p>'.$tweet->text.'</p>
+//        </article>';
             }
         }
 
