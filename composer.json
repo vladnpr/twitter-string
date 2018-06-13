@@ -12,5 +12,10 @@
     "minimum-stability": "dev",
     "require": {
         "abraham/twitteroauth": "^0.7.4"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
     }
 }

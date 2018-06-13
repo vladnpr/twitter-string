@@ -1,10 +1,12 @@
 <?php
 
 $settings = [
-    'consumer_key' => 'CD3P5kinwGa9JIQweBVDEqxcb',
-    'consumer_secret' => 'GX7GCOi8BNZwhubqE36Hz4ajkWlLdbffcolXjowmb7cEeANQfP',
-    'oauth_token' => '476745840-Rn3Bj8rk3dyM4Yk8rsnOLfEiCAwVhWWxtR4jjWzd',
-    'oauth_secret' => 'Ivw48EEguMPiJCGpeoab89qLz0qqt2MH4o4GzY9IPI6i1',
+    'consumer_key' => '3rxvVgzeRsK0X1Hh5v3DBVnf5',
+    'consumer_secret' => 'CHv8r30rbfSmTzLlfCfe7YZ86j81bhdtqzG9YuctCmVgnyOUIX',
+    'oauth_token' => '476745840-AKLCNkjfrHdYhy36hibFtwRv9FsQWlwlCcfSGaTb',
+    'oauth_secret' => 'TdghkxpT4I6BTJqP4NCOkFgnbbheyiU2VnUtlM0BHEKV2',
+    'twitter_username' => 'twitterapi',
+    'tweet_limit' => 25
 ];
 
 return $settings;

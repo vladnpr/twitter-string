@@ -1,7 +1,8 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require_once 'src/Messages.php';
+require_once __DIR__.'/vendor/autoload.php';
 require_once 'config.php';
 
-$test = new \Src\Messages($settings);
+$messages = new \Src\Messages($settings);
+var_dump($messages->getMessages());
