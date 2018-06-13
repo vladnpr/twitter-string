@@ -8,15 +8,6 @@
             jQuery('.content').html('').html(jQuery(new_data).html()).fadeIn()
         },
         complete: refresher,
-        timeout: 30000
+        timeout: 72000
     });
 })();
-
-// setTimeout(refresher, 1000);
-//
-// (function poll(){
-//     $.ajax({ url: "server", success: function(data){
-//             //Update your dashboard gauge
-//             salesGauge.setValue(data.value);
-//         }, dataType: "json", complete: poll, timeout: 30000 });
-// })();
