@@ -2,13 +2,15 @@
 namespace App;
 
 use Src\Messages;
-
+use App\View;
 class App
 {
+    private static $view_path = BASE_DIR . '/public/views/';
+
     public static function run()
     {
-        $twits = self::getTweets(self::getSettings());
-        include BASE_DIR . '/public/views/index.php';
+        $twits = self::getTweets();
+        self::render('index', ['twits' => $twits]);
     }
 
     private static function getSettings() : array
@@ -24,9 +26,17 @@ class App
         ];
     }
 
-    private static function getTweets($settings)
+    private static function getTweets()
     {
-        $twitter = new Messages($settings);
+        $twitter = new Messages(self::getSettings());
         return $twitter->getMessages();
+    }
+
+    private static function render($template, array $data)
+    {
+        $view = new View($template);
+        foreach ($data as $key => $value){
+            $view->assign($key, $value);
+        }
     }
 }
